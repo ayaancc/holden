@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Portrait Video</title>
+    <!-- Google Fonts Preconnect -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Google Font Link for Beiruti -->
+    <link href="https://fonts.googleapis.com/css2?family=Beiruti:wght@200..900&display=swap" rel="stylesheet">
+    <style>
+        /* Set up the body with no margin and full height, background black for all areas */
+        body, html {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            background: black; /* Black background */
+            display: flex;
+            justify-content: center; /* Center content horizontally */
+            align-items: center; /* Center content vertically */
+            overflow: hidden;
+            font-family: 'Beiruti', sans-serif; /* Apply Beiruti font to entire page */
+        }
+
+        /* Basic styling for the video */
+        video {
+            max-width: 100%; /* Maximum width is 100% of its container */
+            height: auto; /* Maintain aspect ratio */
+            box-shadow: 0 0 20px rgba(0,0,0,0.5); /* Optional: adds shadow for better visibility on desktop */
+            border: none; /* No border */
+            outline: none; /* No outline */
+        }
+
+        /* Overlay to prevent interaction with the video and to hold the title */
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1; /* Above the video */
+            color: white; /* Title color */
+            font-size: 40px; /* Title size */
+            text-align: center; /* Title alignment */
+            pointer-events: none; /* Prevent any interactions */
+        }
+
+        /* Media queries for mobile devices */
+        @media (max-width: 800px) { /* Adjust this value based on your breakpoint preference */
+            video {
+                width: 100%; /* Take up 100% of the screen width on mobile */
+                height: auto; /* Adjust height automatically */
+                object-fit: cover; /* Cover the entire view area */
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Background video with autoplay, loop, muted, and no controls for non-interaction -->
+    <video autoplay loop muted class="background-video">
+        <source src="https://github.com/ayaancc/ayaancc.github.io/raw/main/YourPortraitVideo.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
+    <!-- Overlay containing the title to make video non-interactable -->
+    <div class="overlay">
+        holden.codes
+    </div>
+</body>
+</html>
