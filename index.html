@@ -3,72 +3,60 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Responsive Portrait Video</title>
-    <!-- Google Fonts Preconnect -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <!-- Google Font Link for Open Sans -->
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,600;1,600&display=swap" rel="stylesheet">
+    <title>Background Video Example</title>
     <style>
-        /* Set up the body with no margin and full height, background black for all areas */
+        /* Set up the body with no margin and full height, background black for areas not covered by the video */
         body, html {
             height: 100%;
             margin: 0;
-            padding: 0;
-            background: black; /* Black background */
-            display: flex;
-            justify-content: center; /* Center content horizontally */
-            align-items: center; /* Center content vertically */
+            font-family: Arial, sans-serif;
+            background: black; /* Ensure uncovered areas are black */
             overflow: hidden;
-            font-family: 'Open Sans', sans-serif; /* Apply Open Sans font to entire page */
         }
 
-        /* Basic styling for the video */
-        video {
-            max-width: 100%; /* Maximum width is 100% of its container */
-            height: auto; /* Maintain aspect ratio */
-            box-shadow: 0 0 20px rgba(0,0,0,0.5); /* Optional: adds shadow for better visibility on desktop */
-            border: none; /* No border */
-            outline: none; /* No outline */
+        /* Fullscreen background video styling */
+        .background-video {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;  /* Cover full width of the screen */
+            height: 100%; /* Adjust height to maintain aspect ratio */
+            object-fit: cover; /* Ensure the video covers the screen properly */
+            z-index: -1; /* Keep it in the background */
         }
 
-        /* Overlay to prevent interaction with the video and to hold the title */
+        /* Overlay to prevent interaction with the video */
         .overlay {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
+            background: rgba(0, 0, 0, 0.4); /* Semi-transparent overlay to enhance readability */
             display: flex;
             align-items: center;
             justify-content: center;
             z-index: 1; /* Above the video */
-            color: white; /* Title color */
-            font-size: 40px; /* Title size */
-            text-align: center; /* Title alignment */
-            pointer-events: none; /* Prevent any interactions */
         }
 
-        /* Media queries for mobile devices */
-        @media (max-width: 800px) { /* Adjusts for devices with a max width of 800px */
-            video {
-                width: 100%; /* Take up 100% of the screen width on mobile */
-                height: auto; /* Adjust height automatically */
-                object-fit: cover; /* Cover the entire view area */
-            }
+        /* Title styling */
+        .title {
+            font-size: 40px;
+            color: white;
+            text-align: center;
         }
     </style>
 </head>
 <body>
-    <!-- Background video with autoplay, loop, muted, and no controls for non-interaction -->
-    <video autoplay loop muted class="background-video">
-        <source src="https://github.com/ayaancc/ayaancc.github.io/raw/main/YourPortraitVideo.mp4" type="video/mp4">
+    <!-- Background video with autoplay, loop, muted, playsinline attributes to act like a GIF and ensure mobile compatibility -->
+    <video class="background-video" autoplay loop muted playsinline>
+        <source src="https://github.com/ayaancc/ayaancc.github.io/raw/main/PKQtwRNBar9GyHL5Mf.mp4" type="video/mp4">
         Your browser does not support the video tag.
     </video>
 
     <!-- Overlay containing the title to make video non-interactable -->
     <div class="overlay">
-        holden.codes
+        <div class="title">Your Title Here</div>
     </div>
 </body>
 </html>
